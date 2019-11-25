@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { NavComponent } from '../nav/nav.component';
 
 @Component({
   selector: 'app-notes',
@@ -11,6 +12,15 @@ export class NotesComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    if(NavComponent.clearNote){
+      NavComponent.clearNote.subscribe((data: any ) => {
+        console.log(data, 'data')
+        this.notes = data;
+      })
+    }
+    // if(NavComponent.displayNoteData){
+    //   NavComponent.displayNoteData.subscribe((data: ))
+    // }
   }
   sendMessage(event: any) {
     this.noteData.emit(this.notes);

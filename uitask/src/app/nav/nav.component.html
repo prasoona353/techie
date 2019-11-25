@@ -3,7 +3,12 @@
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
-    <mat-toolbar>Menu</mat-toolbar>
+    <mat-toolbar>
+      <mat-form-field class="example-full-width mt-4 pt-4">
+        <input matInput placeholder="Search" value="Sushi" 
+         [(ngModel)]="searchText">
+      </mat-form-field>
+    </mat-toolbar>
     <mat-nav-list *ngIf="notes">
       <a mat-list-item (click)="displayNote(notes)">
         <h4 mat-line>{{notes  | slice : 0:15}}
@@ -13,6 +18,7 @@
       <!-- <a mat-list-item href="#">Link 2</a>
       <a mat-list-item href="#">Link 3</a> -->
     </mat-nav-list>
+    <!-- <ng-te -->
     <mat-nav-list *ngFor="let each of noteTitles " >
       <a mat-list-item (click)="displayNote(each)">
         <h4 mat-line>{{each.title | slice : 0:15}}
@@ -23,6 +29,7 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
+    
     <mat-toolbar color="primary">
       <button
         type="button"
@@ -32,17 +39,25 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
+      <!-- <span>uitask</span> -->
+  
       <button class="ml-4" mat-fab color="" (click)="saveNote()">Save </button>
 
       <button class="ml-4" (click)="deleteNote()" mat-fab color="warn">Delete</button>
       <button class="ml-4" mat-fab color="" (click)="createNote()">Clear </button>
+
     </mat-toolbar>
     <div class="ml-4 mt-4">
-      <app-notes
-      (noteData)="receiveNote($event)"
-      ></app-notes>
+        <app-notes
+         (noteData)="receiveNote($event)"
+         
+        ></app-notes>
 
-  </div>
+    </div>
+
     <!-- Add Content Here -->
   </mat-sidenav-content>
 </mat-sidenav-container>
+
+
+
