@@ -26,10 +26,10 @@ export class NavComponent implements OnInit {
   constructor(private breakpointObserver: BreakpointObserver) { }
   ngOnInit() {
     this.noteTitles = [
-      {id:4, title: 'Note1',  date: new Date() },
-      {id:3, title: 'Note2',  date: new Date() },
-      {id:2, title: 'Note3',  date: new Date() },
-      {id:1, title: 'Note4',  date: new Date() }
+      {id:4, title: 'Greetngs of the day!!!!!!',  date: new Date() },
+      {id:3, title: 'Thankyou, for giving me an opportunity',  date: new Date() },
+      {id:2, title: 'Because of this, I had learnt more about GitHub',  date: new Date() },
+      {id:1, title: 'I found there is no need to use local storage, thats y i didnt use it',  date: new Date() }
     ]
 
   }
