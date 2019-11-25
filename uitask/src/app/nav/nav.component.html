@@ -13,10 +13,13 @@
       <!-- <a mat-list-item href="#">Link 2</a>
       <a mat-list-item href="#">Link 3</a> -->
     </mat-nav-list>
-    <mat-nav-list>
-      <a mat-list-item href="#">Link 1</a>
-      <a mat-list-item href="#">Link 2</a>
-      <a mat-list-item href="#">Link 3</a>
+    <mat-nav-list *ngFor="let each of noteTitles " >
+      <a mat-list-item (click)="displayNote(each)">
+        <h4 mat-line>{{each.title | slice : 0:15}}
+          {{each.title.length>14 ? '...' : ''}}</h4>
+        <p mat-line> {{each.date | date:'mediumTime'}} </p>
+      </a>
+     
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -29,7 +32,10 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>uitask</span>
+      <button class="ml-4" mat-fab color="" (click)="saveNote()">Save </button>
+
+      <button class="ml-4" (click)="deleteNote()" mat-fab color="warn">Delete</button>
+      <button class="ml-4" mat-fab color="" (click)="createNote()">Clear </button>
     </mat-toolbar>
     <div class="ml-4 mt-4">
       <app-notes
