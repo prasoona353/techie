@@ -19,7 +19,7 @@
       <a mat-list-item href="#">Link 3</a> -->
     </mat-nav-list>
     <!-- <ng-te -->
-    <mat-nav-list *ngFor="let each of noteTitles " >
+    <mat-nav-list *ngFor="let each of noteTitles | searchFilter : searchText" >
       <a mat-list-item (click)="displayNote(each)">
         <h4 mat-line>{{each.title | slice : 0:15}}
           {{each.title.length>14 ? '...' : ''}}</h4>

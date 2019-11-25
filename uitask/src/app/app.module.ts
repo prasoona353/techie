@@ -8,13 +8,15 @@ import { MaterialModule } from './shared/angular-material.module';
 import { NavComponent } from './nav/nav.component';
 import { NotesComponent } from './notes/notes.component';
 import { FormsModule } from '@angular/forms';
+import { SearchPipe } from './shared/search.pipe';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
-    NotesComponent
+    NotesComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
