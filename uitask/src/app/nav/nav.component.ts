@@ -9,6 +9,8 @@ import { map, shareReplay } from 'rxjs/operators';
   styleUrls: ['./nav.component.scss']
 })
 export class NavComponent {
+  notes: string;
+  todayDate = new Date();
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -17,5 +19,8 @@ export class NavComponent {
     );
 
   constructor(private breakpointObserver: BreakpointObserver) {}
-
+  receiveNote(event: any) {
+    console.log(event, 'event',)
+    this.notes = event;
+  }
 }

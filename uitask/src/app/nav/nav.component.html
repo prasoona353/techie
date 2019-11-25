@@ -4,6 +4,15 @@
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list *ngIf="notes">
+      <a mat-list-item (click)="displayNote(notes)">
+        <h4 mat-line>{{notes  | slice : 0:15}}
+          {{notes.length>14 ? '...' : ''}}</h4>
+        <p mat-line> {{todayDate | date: 'mediumTime'}} </p>
+      </a>
+      <!-- <a mat-list-item href="#">Link 2</a>
+      <a mat-list-item href="#">Link 3</a> -->
+    </mat-nav-list>
     <mat-nav-list>
       <a mat-list-item href="#">Link 1</a>
       <a mat-list-item href="#">Link 2</a>
@@ -24,6 +33,7 @@
     </mat-toolbar>
     <div class="ml-4 mt-4">
       <app-notes
+      (noteData)="receiveNote($event)"
       ></app-notes>
 
   </div>

@@ -1,6 +1,8 @@
 <form class="example-form">
     <mat-form-field class="example-full-width">
       <textarea matInput placeholder="Enter Note" 
+      [(ngModel)]="notes" [ngModelOptions]="{standalone: true}"
+      (input)="sendMessage($event)"
      ></textarea>
     </mat-form-field>
   </form>
